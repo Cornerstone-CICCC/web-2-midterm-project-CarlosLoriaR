@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Watch movies online for free">
+    <title>Movie Time - Home</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/main.js"></script>
+
+
+    <!-- CSS FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Emblema+One&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/f8be10a101.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header-bg">
+        <nav class="wrapper">
+            <div class="logo">
+                <img src="./assets/images/logo.png" alt="Logo Image">
+            </div>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">Tv Shows</a></li>
+                <li><a href="./about.html">About Us</a></li>
+                <li><button class="login-button" href="#">Login</button></li>
+                <li><button class="join-button" href="#">Join</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- DARK/LIGHT MODE -->
+
+    <div class="mode">
+        <i class="fa-solid fa-sun"></i>
+        <div class="toggle"><a href="#" id="toggle"><i class="fa-solid fa-toggle-on"></i></a></div>
+        <i class="fa-solid fa-moon"></i>
+    </div>
+
+    <main class="main-content wrapper">
+
+        <!-- SEARCH -->
+
+        <section class="search-bar-container">
+            <input type="text" id="movieInput" name="movieInput" placeholder="Search for movies, tv shows and people"
+                class="search-bar">
+            <button class="search-btn" onclick="multi()">
+                <span class="search-icon">🔍</span>
+            </button>
+        </section>
+
+        <section id="search-results" class="search-results">
+            <div id="search-results-list" class="results-list"></div>
+        </section>
+
+        <!-- TRENDING MOVIES -->
+
+        <section id="trending-movies" class="trending-movies">
+            <h2>Trending Movies</h2>
+            <div id="container-movies" class="container-movies">
+            </div>
+        </section>
+
+        <!-- TRENDING TV SHOWS -->
+
+        <section id="trending-tv" class="trending-tv">
+            <h2>Trending TV</h2>
+            <div id="container-tv" class="container-tv">
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer-bg">
+        <div class="wrapper">
+            <h2>Created by <a href="https://carlosloria.vercel.app/">Carlos Loria</a></h2>
+        </div>
+    </footer>
+
+    <script src="./js/nav.js"></script>
+    <script src="./js/dark_mode.js"></script>
+</body>
+
+</html>

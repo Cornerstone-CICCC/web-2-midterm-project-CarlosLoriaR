@@ -1,0 +1,464 @@
+* {
+  color: #f2f5f7;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+/* HEADER */
+.header-bg {
+  background-color: black;
+  margin-bottom: 2rem;
+}
+
+nav {
+  height: 6rem;
+  display: flex;
+  z-index: 10;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+}
+
+/*Styling logo*/
+.logo {
+  text-align: center;
+}
+
+.logo img {
+  width: 220px;
+  height: 60px;
+}
+
+/*Styling Links*/
+.nav-links {
+  display: flex;
+  list-style: none;
+  width: 88vw;
+  padding: 0 0.7vw;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  margin: 0 0.7vw;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  font-weight: bold;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links li a::before {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0%;
+  bottom: -10px;
+  background-color: red;
+  position: absolute;
+  transition: all ease-in-out 250ms;
+  margin: 0 0 0 10%;
+}
+
+.nav-links li a:hover::before {
+  width: 80%;
+}
+
+/*Styling Buttons*/
+.login-button {
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 2em;
+  padding: 0.6rem 0.8rem;
+  margin-left: 2vw;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.join-button {
+  color: white;
+  background-color: red;
+  border: 2px solid white;
+  border-radius: 2em;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/*Styling Hamburger Icon*/
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background: #f2f5f7;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.hamburger {
+  display: none;
+}
+
+/*Stying for small screens*/
+@media screen and (max-width: 800px) {
+  nav {
+    position: sticky;
+    align-items: center;
+  }
+  .hamburger {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    z-index: 2;
+    transition: all 0.7s ease;
+  }
+  .nav-links {
+    position: fixed;
+    background: black;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    clip-path: circle(50px at 90% -20%);
+    -webkit-clip-path: circle(50px at 90% -10%);
+    transition: all 1s ease-out;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+  }
+  .nav-links.open {
+    clip-path: circle(2000px at 90% -10%);
+    -webkit-clip-path: circle(2000px at 90% -10%);
+    pointer-events: all;
+  }
+  .nav-links li {
+    opacity: 0;
+  }
+  .nav-links li:nth-child(1) {
+    transition: all 0.5s ease 0.2s;
+  }
+  .nav-links li:nth-child(2) {
+    transition: all 0.5s ease 0.4s;
+  }
+  .nav-links li:nth-child(3) {
+    transition: all 0.5s ease 0.6s;
+  }
+  .nav-links li:nth-child(4) {
+    transition: all 0.5s ease 0.7s;
+  }
+  .nav-links li:nth-child(5) {
+    transition: all 0.5s ease 0.8s;
+  }
+  .nav-links li:nth-child(6) {
+    transition: all 0.5s ease 0.9s;
+    margin: 0;
+  }
+  .nav-links li:nth-child(7) {
+    transition: all 0.5s ease 1s;
+    margin: 0;
+  }
+  li.fade {
+    opacity: 1;
+  }
+}
+/*Animating Hamburger Icon on Click*/
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+  transition: all 0.7s ease;
+  width: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.light-mode .about-text {
+  color: black;
+}
+
+.about-text {
+  font-size: 1.2rem;
+  color: #bbb;
+  background: radial-gradient(circle at top, rgba(229, 9, 20, 0.35), transparent 70%), #0d0d0d;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  text-wrap: wrap;
+}
+
+.about-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .about-footer {
+    position: static;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  position: relative;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: auto;
+}
+
+/* DARK/LIGHT MODE */
+.mode {
+  display: flex;
+  gap: 0.2em;
+  font-size: 1.2rem;
+  color: red;
+  align-items: center;
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+  align-items: center;
+  padding: 0.3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  z-index: 10000;
+}
+.mode i {
+  transition: all 0.5s;
+  color: red;
+}
+.mode i:hover {
+  color: red;
+}
+.mode a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.light-mode {
+  background-color: #f8f9fa;
+}
+.light-mode a,
+.light-mode p,
+.light-mode h1,
+.light-mode h3,
+.light-mode span,
+.light-mode li {
+  color: black;
+}
+.light-mode .mode i {
+  color: white;
+}
+.light-mode header {
+  background-color: #f8f9fa;
+  color: black;
+}
+.light-mode footer div h2 a {
+  color: white;
+}
+.light-mode .hamburger div {
+  background: black;
+}
+.light-mode .nav-links {
+  background: white;
+}
+.light-mode .nav-links li a {
+  color: black;
+}
+.light-mode .movie-card a,
+.light-mode .tv-card a,
+.light-mode .search-card a {
+  color: black;
+}
+
+/* SEARCH  */
+.search-bar-container {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  background: black;
+  border-radius: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  padding: 0.5rem 1rem;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+.search-bar {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.7rem 0.5rem;
+  border-radius: 40px;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  transition: color 0.2s;
+}
+
+.search-btn:hover {
+  color: blue;
+}
+
+.search-icon {
+  font-size: 1.5rem;
+}
+
+/* MAIN */
+main section h2 {
+  font-size: 3rem;
+  font-family: "Emblema One", system-ui;
+  text-transform: uppercase;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  border-radius: 0.6rem;
+  background: linear-gradient(to bottom, rgba(255, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.8) 50%);
+}
+
+/* COMMON*/
+.container-movies,
+.container-tv,
+.results-list {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  height: fit-content;
+  scrollbar-width: none;
+}
+
+.results-list,
+.container-movies,
+.container-tv {
+  border-radius: 1rem;
+  margin: 3rem 0px 3rem 0px;
+}
+
+.movie-card,
+.tv-card,
+.search-card {
+  flex: 0 0 auto;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: white;
+  line-height: normal;
+  max-width: 300px;
+  line-height: 1rem;
+  transition: all 0.2s ease-in;
+}
+.movie-card:hover img,
+.tv-card:hover img,
+.search-card:hover img {
+  opacity: 0.3;
+}
+.movie-card:hover,
+.tv-card:hover,
+.search-card:hover {
+  transform: scale(0.95);
+  cursor: pointer;
+}
+.movie-card img,
+.tv-card img,
+.search-card img {
+  width: 300px;
+  height: 450px;
+  transition: opacity 0.2s ease-in;
+}
+.movie-card .media-title,
+.tv-card .media-title,
+.search-card .media-title {
+  font-size: 1.3rem;
+  text-wrap: wrap;
+  font-weight: bold;
+}
+.movie-card .media-overview,
+.tv-card .media-overview,
+.search-card .media-overview {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.movie-card img,
+.tv-card img,
+.search-card img {
+  width: 100%;
+  border-radius: 1rem;
+  margin: 0;
+}
+
+/* FOOTER */
+.footer-bg {
+  background-color: black;
+  padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 900px) {
+  .main-content {
+    padding: 1rem 0.5rem;
+  }
+  .results-list {
+    gap: 1rem;
+  }
+  .album-card {
+    padding: 1rem 0.5rem 0.8rem 0.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  footer {
+    padding: 1.2rem 0 0.7rem 0;
+  }
+  .search-section {
+    max-width: 98vw;
+  }
+  .search-bar-container {
+    max-width: 98vw;
+    padding: 0.3rem 0.5rem;
+  }
+  .nav-links li a {
+    color: white;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

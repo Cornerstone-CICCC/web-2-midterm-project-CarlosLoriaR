@@ -1,0 +1,267 @@
+@use "./colors" as *;
+@use "./nav" as *;
+@use "./about" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  position: relative;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: auto;
+}
+
+/* DARK/LIGHT MODE */
+
+.mode {
+  display: flex;
+  gap: 0.2em;
+  font-size: 1.2rem;
+  color: red;
+  align-items: center;
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+  align-items: center;
+  padding: 0.3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  z-index: 10000;
+
+  & i {
+    transition: all 0.5s;
+    color: red;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  & a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+}
+
+.light-mode {
+  background-color: #f8f9fa;
+
+  & a,
+  p,
+  h1,
+  h3,
+  span,
+  li {
+    color: black;
+  }
+
+  .mode i {
+    color: white;
+  }
+
+  header {
+    background-color: #f8f9fa;
+    color: black;
+  }
+  footer div h2 a {
+    color: white;
+  }
+  .hamburger div {
+    background: black;
+  }
+  .nav-links {
+    background: white;
+  }
+  .nav-links li a {
+    color: black;
+  }
+  .movie-card a,
+  .tv-card a,
+  .search-card a {
+    color: black;
+  }
+}
+
+/* SEARCH  */
+
+.search-bar-container {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  background: black;
+  border-radius: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  padding: 0.5rem 1rem;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+.search-bar {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.7rem 0.5rem;
+  border-radius: 40px;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  transition: color 0.2s;
+}
+
+.search-btn:hover {
+  color: blue;
+}
+
+.search-icon {
+  font-size: 1.5rem;
+}
+
+/* MAIN */
+
+main section h2 {
+  font-size: 3rem;
+  font-family: "Emblema One", system-ui;
+  text-transform: uppercase;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  border-radius: 0.6rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 0.8) 50%
+  );
+}
+
+/* COMMON*/
+.container-movies,
+.container-tv,
+.results-list {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  height: fit-content;
+  scrollbar-width: none;
+}
+
+.results-list,
+.container-movies,
+.container-tv {
+  border-radius: 1rem;
+  margin: 3rem 0px 3rem 0px;
+}
+
+.movie-card,
+.tv-card,
+.search-card {
+  flex: 0 0 auto;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: white;
+  line-height: normal;
+  max-width: 300px;
+  line-height: 1rem;
+  transition: all 0.2s ease-in;
+
+  &:hover img {
+    opacity: 0.3;
+  }
+
+  &:hover {
+    transform: scale(0.95);
+    cursor: pointer;
+  }
+
+  img {
+    width: 300px;
+    height: 450px;
+    transition: opacity 0.2s ease-in;
+  }
+  .media-title {
+    font-size: 1.3rem;
+    text-wrap: wrap;
+    font-weight: bold;
+  }
+
+  .media-overview {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+}
+
+.movie-card img,
+.tv-card img,
+.search-card img {
+  width: 100%;
+  border-radius: 1rem;
+  margin: 0;
+}
+
+/* FOOTER */
+.footer-bg {
+  background-color: black;
+  padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 900px) {
+  .main-content {
+    padding: 1rem 0.5rem;
+  }
+
+  .results-list {
+    gap: 1rem;
+  }
+
+  .album-card {
+    padding: 1rem 0.5rem 0.8rem 0.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    padding: 1.2rem 0 0.7rem 0;
+  }
+
+  .search-section {
+    max-width: 98vw;
+  }
+
+  .search-bar-container {
+    max-width: 98vw;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .nav-links li a {
+    color: white;
+  }
+}

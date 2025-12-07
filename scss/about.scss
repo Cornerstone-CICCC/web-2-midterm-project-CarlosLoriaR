@@ -1,0 +1,29 @@
+.light-mode {
+  .about-text {
+    color: black;
+  }
+}
+.about-text {
+  font-size: 1.2rem;
+  color: #bbb;
+  background: radial-gradient(
+      circle at top,
+      rgba(229, 9, 20, 0.35),
+      transparent 70%
+    ),
+    #0d0d0d;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  text-wrap: wrap;
+}
+
+.about-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+@media screen and (max-width: 600px) {
+  .about-footer {
+    position: static;
+  }
+}
