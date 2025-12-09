@@ -286,7 +286,7 @@ body {
   background: black;
 }
 .light-mode .nav-links {
-  background: white;
+  background: #f8f9fa;
 }
 .light-mode .nav-links li a {
   color: black;
